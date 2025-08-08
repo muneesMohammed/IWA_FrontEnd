@@ -1,0 +1,142 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "IWA-Application": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/iwa-application",
+            "index": "src/index.html",
+            "browser": "src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
+            ],
+            "styles": [
+              "src/styles.scss",
+              "assets/css/animate.css",
+              "assets/css/magnific-popup.css",
+              "assets/css/metismenu.css",
+              "assets/css/owl.theme.css",
+              "assets/css/bootstrap.min.css",
+              "assets/css/style.css",
+              "assets/css/timeline.min.css",
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.css",
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.css",
+              "assets/css/icons.css",
+              "assets/css/animate.css",
+              "assets/css/owl.carousel.min.css"
+            ],
+            "scripts": [
+              "assets/js/jquery.min.js",
+              "assets/js/modernizr.min.js",
+              "assets/js/jquery.easing.js",
+              "assets/js/popper.min.js",
+              "assets/js/bootstrap.min.js",
+              "assets/js/isotope.pkgd.min.js",
+              "assets/js/imageload.min.js",
+              "assets/js/scrollUp.min.js",
+              "assets/js/owl.carousel.min.js",
+              "assets/js/magnific-popup.min.js",
+              "assets/js/waypoint.js",
+              "assets/js/easypiechart.min.js",
+              "assets/js/counterup.min.js",
+              "assets/js/wow.min.js",
+              "assets/js/metismenu.js",
+              "assets/js/timeline.min.js",
+              "assets/js/ajax-mail.js",
+              "assets/js/active.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "10mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "IWA-Application:build:production"
+            },
+            "development": {
+              "buildTarget": "IWA-Application:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "d9aa9a2c-f9c6-4788-8315-1bd14269a33d"
+  }
+}
+
+
+
+
+
+
