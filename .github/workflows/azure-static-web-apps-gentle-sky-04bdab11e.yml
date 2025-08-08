@@ -39,7 +39,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
           app_location: "/"
-          output_location: "dist/iwa-application/browser"
+          output_location: "dist/iwa-application"
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
