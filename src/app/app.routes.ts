@@ -24,15 +24,16 @@ export const routes: Routes = [
       { path: 'news-details', component: NewsDetailsComponent },
       {path: 'blog', component:BlogComponent},
       {path:'pages/volunteer', component:VolunteerComponent},
-      {path:'projects/donation', component:DonationComponent},
+      {path:'programs/donation', component:DonationComponent},
       {path:'pages/teams', component:TeamsComponent},
       {path: 'pages/events', component: EventsComponent},
-      {path: 'projects/programs', component: ProgramsComponent},
+      {path: 'programs/programs-list', component: ProgramsComponent},
       // {path: 'event-details', component: EventsDetailsComponent },
-      // {path: 'events/:id', component: EventsDetailsComponent },
-      {path: 'events/:id', component: EventsDetailsComponent,   data: { renderMode: 'client' }},
+      {path: 'events/:id', component: EventsDetailsComponent },
+      // {path: 'events/:id', component: EventsDetailsComponent,   data: { renderMode: 'client' }},
 
-      {path: 'projects/programs-detail', component: ProgramsDetailComponent },
+      // {path: 'programs/programs-detail', component: ProgramsDetailComponent },
+      {path: 'programs/:id', component: ProgramsDetailComponent },
       {path: 'pages/faq', component: FaqComponent }
 
 ];
