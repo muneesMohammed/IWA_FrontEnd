@@ -21,7 +21,7 @@ export const routes: Routes = [
       { path: 'about', component: AboutComponent },
       { path: 'contact', component: ContactComponent },
       { path: 'news', component: NewsComponent },
-      { path: 'news-details', component: NewsDetailsComponent },
+      { path: 'news/:id', component: NewsDetailsComponent },
       {path: 'blog', component:BlogComponent},
       {path:'pages/volunteer', component:VolunteerComponent},
       {path:'programs/donation', component:DonationComponent},
