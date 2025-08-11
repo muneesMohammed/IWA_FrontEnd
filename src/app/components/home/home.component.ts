@@ -1,6 +1,7 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { RouterLink, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { NgxSpinnerService, NgxSpinnerModule } from 'ngx-spinner';
 
 declare var $: any; // Declare jQuery
 
@@ -11,7 +12,19 @@ declare var $: any; // Declare jQuery
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
+  
 export class HomeComponent implements AfterViewInit {
+
+     constructor(private spinner: NgxSpinnerService) {}
+  
+    showSpinner() {
+      this.spinner.show();
+  
+      setTimeout(() => {
+        this.spinner.hide();
+      }, 500); // hide after 2 seconds
+    }
+    
 
   ngAfterViewInit(): void {
     // Initialize Owl Carousel after the view is ready

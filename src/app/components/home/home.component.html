@@ -325,8 +325,8 @@
                         <h1>Joel Orphanage Of Ministry Uganda</h1>
                     </div>
 
-                    <a href="about.html" class="cat-btn color"><i class="fal fa-briefcase"></i>Careers</a>
-                    <a href="about.html" class="cat-btn"><i class="fal fa-user"></i>Internship</a>
+                    <a routerLink="/about" (click)="showSpinner()" class="cat-btn color"><i class="fal fa-briefcase"></i>Careers</a>
+                    <a routerLink="/about" (click)="showSpinner()" class="cat-btn"><i class="fal fa-user"></i>Internship</a>
                 </div>
             </div>
         </div>
@@ -473,8 +473,8 @@
                         <div class="cause-bg bg-cover" style="background-image: url('assets/img/home1/cause1.jpg');"></div>
                         <div class="cause-content">
                             <div class="cause-meta">
-                                <a routerLink="/programs/programs-list" class="cause-cat">water</a>
-                                <a href="#" class="cause-author"><i class="fal fa-user"></i>By Salman A.</a>
+                                <a routerLink="/programs/programs-list" (click)="showSpinner()">water</a>
+                                <a routerLink="/programs/programs-list" (click)="showSpinner()" class="cause-author"><i class="fal fa-user"></i>By Salman A.</a>
                             </div>
                             <h4><a href="cause-details.html">Because Everyone Deserves Clean Water</a></h4>
                             <div class="cause-amount mt-20  d-flex justify-content-between align-items-center">
@@ -490,7 +490,7 @@
                                     </div>
                                 </div>
                                 <div class="donate-btn">
-                                    <a href="cause-details.html">Donate</a>
+                                    <a routerLink="/donation" (click)="showSpinner()">Donate</a>
                                 </div>
                             </div>
                         </div>
@@ -501,8 +501,8 @@
                         <div class="cause-bg bg-cover" style="background-image: url('assets/img/cowboy.jpg');"></div>
                         <div class="cause-content">
                             <div class="cause-meta">
-                                <a routerLink="/programs/programs-list" class="cause-cat">health</a>
-                                <a href="#" class="cause-author"><i class="fal fa-user"></i>By Miranda H.</a>
+                                <a routerLink="/programs/programs-list" (click)="showSpinner()" class="cause-cat">health</a>
+                                <a routerLink="/programs/programs-list" (click)="showSpinner()" class="cause-author"><i class="fal fa-user"></i>By Miranda H.</a>
                             </div>
                             <h4><a href="cause-details.html">Patient and Family medical free Support</a></h4>
                             <div class="cause-amount mt-20  d-flex justify-content-between align-items-center">
@@ -518,7 +518,7 @@
                                     </div>
                                 </div>
                                 <div class="donate-btn">
-                                    <a href="cause-details.html">Donate</a>
+                                    <a routerLink="/donation" (click)="showSpinner()">Donate</a>
                                 </div>
                             </div>
                         </div>
@@ -529,8 +529,8 @@
                         <div class="cause-bg bg-cover" style="background-image: url('assets/img/waterboy.jpg');"></div>
                         <div class="cause-content">
                             <div class="cause-meta">
-                                <a routerLink="/programs/programs-list" class="cause-cat">child</a>
-                                <a href="#" class="cause-author"><i class="fal fa-user"></i>By Jone De.</a>
+                                <a routerLink="/programs/programs-list" (click)="showSpinner()" class="cause-cat">child</a>
+                                <a routerLink="/programs/programs-list" (click)="showSpinner()" class="cause-author"><i class="fal fa-user"></i>By Jone De.</a>
                             </div>
                             <h4><a href="cause-details.html">Much Needed Help support for Childhood</a></h4>
                             <div class="cause-amount mt-20  d-flex justify-content-between align-items-center">
@@ -556,58 +556,7 @@
 
         </div>
     </section>  
-<!-- 
-    <section class="blog-card-section blog-3 section-padding bg-cover" style="background-image: url('assets/img/blog_3_bg.jpg')">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-left mb-40">
-                    <div class="section-title">
-                        <span><i class="fal fa-heart"></i>Insights</span>
-                        <h1 class="text-white">News Feeds</h1>
-                    </div>
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="single-blog-card card-2">
-                        <div class="featured-img bg-cover" style="background-image: url('assets/img/blog/post1.jpg')"></div>
-                        <div class="blog-details">
-                            <a href="news.html" class="cat-name">Education</a>
-                            <span><i class="fal fa-calendar-alt"></i>24th September 2020</span>
-                            <h3><a href="news-details.html">Childhood Teaching Free support</a></h3>
-                            <p>Lorem ipsum dolor sit amet, con sectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
-                            <a href="news-details.html" class="read-more-btn">Read More</a>
-                        </div>                        
-                    </div>                    
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="single-blog-card card-2">
-                        <div class="featured-img bg-cover" style="background-image: url('assets/img/blog/post2.jpg')"></div>
-                        <div class="blog-details">
-                            <a href="news.html" class="cat-name">donors</a>
-                            <span><i class="fal fa-calendar-alt"></i>27th September 2020</span>
-                            <h3><a href="news-details.html">Group of donors is a cover operating</a></h3>
-                            <p>Lorem ipsum dolor sit amet, con sectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
-                            <a href="news-details.html" class="read-more-btn">Read More</a>
-                        </div>                        
-                    </div>                    
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="single-blog-card card-2">
-                        <div class="featured-img bg-cover" style="background-image: url('assets/img/blog/post3.jpg')"></div>
-                        <div class="blog-details">
-                            <a href="news.html" class="cat-name">Water Day</a>
-                            <span><i class="fal fa-calendar-alt"></i>29th September 2020</span>
-                            <h3><a href="news-details.html">Everyone Deserves Clean Water</a></h3>
-                            <p>Lorem ipsum dolor sit amet, con sectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
-                            <a href="news-details.html" class="read-more-btn">Read More</a>
-                        </div>                        
-                    </div>                    
-                </div>
-            </div>
-        </div>
-    </section> -->
         <section class="blog-card-section section-padding">
         <div class="container">
             <div class="row">
@@ -661,71 +610,4 @@
             </div>
         </div>
     </section>
-<!-- 
-    <footer class="footer-3 special-footer section-padding" style="background-image: url('assets/img/footer_pattern.png')">
-        <div class="footer-sponsers">
-            <div class="container">
-                <div class="row pb-60 text-center justify-content-center align-items-center">
-                    <div class="col-12 col-md-4 col-lg-3">
-                        <div class="single-brand">
-                            <img src="assets/img/home3/brand/1.png" alt="">
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 col-lg-3">
-                        <div class="single-brand">
-                            <img src="assets/img/home3/brand/2.png" alt="">
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 col-lg-3">
-                        <div class="single-brand">
-                            <img src="assets/img/home3/brand/3.png" alt="">
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 col-lg-3">
-                        <div class="single-brand">
-                            <img src="assets/img/home3/brand/4.png" alt="">
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 col-lg-3">
-                        <div class="single-brand">
-                            <img src="assets/img/home3/brand/5.png" alt="">
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 col-lg-3">
-                        <div class="single-brand">
-                            <img src="assets/img/home3/brand/6.png" alt="">
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 col-lg-3">
-                        <div class="single-brand">
-                            <img src="assets/img/home3/brand/7.png" alt="">
-                        </div>
-                    </div>
-                </div>
-                <hr>
-            </div>
-        </div>
-        
-        <div class="footer-bottom text-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-8 offset-xl-2">
-                        <div class="footer-logo mb-30">
-                            <a href="index.html"><img src="assets/img/footer-logo-white.png" alt="fundbux"></a>
-                        </div>
-                        <p>It’s been a year like no other, but we still have the chance to change the course of 2021 for 10,000 people in rural Mali. Together, we can transform the future for families who’ve endured life without clean water for too long.</p>
 
-                        <div class="social-link">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
-                            <a href="#"><i class="fab fa-behance"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
- -->
