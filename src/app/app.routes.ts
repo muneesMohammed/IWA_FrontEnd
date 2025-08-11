@@ -23,7 +23,7 @@ export const routes: Routes = [
       { path: 'news', component: NewsComponent },
       { path: 'news/:id', component: NewsDetailsComponent },
       {path: 'blog', component:BlogComponent},
-      {path:'pages/volunteer', component:VolunteerComponent},
+      {path: 'pages/volunteer', component:VolunteerComponent},
       {path:'programs/donation', component:DonationComponent},
       {path:'pages/teams', component:TeamsComponent},
       {path: 'pages/events', component: EventsComponent},
