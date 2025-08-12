@@ -1,18 +1,17 @@
-
-    <section class="page-banner-wrap bg-cover" style="background-image: url('assets/img/page-banner.jpg')">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-8">
-                    <div class="page-heading text-white">
-                        <div class="sub-title">
-                            <h4><strong>Our Mission:</strong> Food, Education, Medicine</h4>
-                        </div>
-                        <div class="page-title">
-                            <h1>Event Details</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
+<section class="page-banner-wrap bg-cover" [style.background-image]="'url(' + event?.bannerImage + ')'">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-8">
+        <div class="page-heading text-white">
+          <div class="sub-title">
+            <h4><strong>Our Mission:</strong> Food, Education, Medicine</h4>
+          </div>
+          <div class="page-title">
+            <h1>{{  'Event Details' }}</h1>
+          </div>
+        </div>
+      </div>
+                      <div class="col-md-4">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                           <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
@@ -20,115 +19,122 @@
                         </ol>
                     </nav>
                 </div>
-            </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section class="event-details-wrap section-padding" *ngIf="event">
+  <div class="container">
+    <div class="row">
+      <!-- Main Image -->
+      <div class="col-12 col-lg-12">
+        <div class="event-fetaured-thumb">
+          <img [src]="event.mainImage" alt="event details">
         </div>
-    </section>
+      </div>
 
-    <section class="event-details-wrap section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-lg-12">
-                    <div class="event-fetaured-thumb">
-                        <img src="assets/img/event-details.jpg" alt="event details">
-                    </div>
-                </div>
-                <div class="col-12 col-lg-7 col-xl-8">
-                    <div class="event-details-contents">
-                        <p>t This website is part of Mitsubishi Power's continuous efforts to improve communications with existing and potential customers and other interested parties globally. Aligned with that business purpose and for most effective utilization.</p>
-                        <p>The language, at its very core, emphasised extensively on code readability. With its concise and expressive syntax, it allowed developers to express ideas and concepts without writing tons of lines code (as would be the case in lower-level languages like C or Java). Its simplicity a given, Python seamlessly integrates with other programming languages (like offloading CPU-intensive tasks to C/C++), making it an added bonus to polyglot developers.</p>
-                        <blockquote class="wp-block-quote">
-                            <h3>One of the main driving points behind Python’s meteoric growth.</h3>
-                            <span>Miranda H. <span>-Founder</span></span>                
-                        </blockquote>
-                        <p>Among the major reasons why Python is “slow”, it really boils down to 2 — Python is interpreted as opposed to compiled, ultimately leading to slower execution times; and the fact that it is dynamically typed (data types of variables are automatically inferred by Python during execution). Take, for example, TensorFlow, a Machine Learning library available in Python. These libraries were actually written in C++ and made available in Python, sort of forming a Python “wrapper” around the C++ implementation. The same goes for Numpy and, to an extent, even Caer. One of the major reasons for Python’s slowness is the presence of GIL (Global Interpreter Lock) which allows only one thread to execute at a time. While this boosts the performance of single threading, it places a limitation on parallelism where developers have to implement multiprocessing programs as opposed to multi-threaded ones, to improve speeds.</p>
-                        <div class="row">
-                            <div class="col-md-6 col-12">
-                                <img src="assets/img/event/eventd1.jpg" alt="">
-                            </div>
-                            <div class="col-md-6 col-12">
-                                <img src="assets/img/event/eventd2.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-5 col-xl-4">
-                    <div class="event-details-sidebar">
-                        <div class="single-event-sidebar wow fadeInUp">
-                            <div class="sidebar-title">
-                                <h3>Event Details</h3>
-                            </div>
+      <!-- Content -->
+      <div class="col-12 col-lg-7 col-xl-8">
+        <div class="event-details-contents">
+          <p *ngFor="let para of event.content">{{ para }}</p>
 
-                            <div class="event-address-info">
-                                <div class="single-address-info">
-                                    <div class="icon icon1">
-                                        <i class="fal fa-map-marker-alt"></i>
-                                    </div>
-                                    <div class="address">
-                                        <p>12/A, Miranda Halim City Town Hall, NYC</p>
-                                    </div>
-                                </div>
-                                <div class="single-address-info">
-                                    <div class="icon icon2">
-                                        <i class="fal fa-envelope"></i>
-                                    </div>
-                                    <div class="address">
-                                        <p>info&#64;webmail.com</p>
-                                    </div>
-                                </div>
-                                <div class="single-address-info">
-                                    <div class="icon icon3">
-                                        <i class="fal fa-phone"></i>
-                                    </div>
-                                    <div class="address">
-                                        <p>908-098-098-09</p>
-                                    </div>
-                                </div>
-                                <a href="#" class="theme-btn minimal-btn">Book Your Seat</a>
-                            </div>
-                        </div>
+          <blockquote class="wp-block-quote" *ngIf="event.quote">
+            <h3>{{ event.quote.text }}</h3>
+            <span>{{ event.quote.author }} <span *ngIf="event.quote.role">-{{ event.quote.role }}</span></span>
+          </blockquote>
 
-                        <div class="single-event-sidebar wow fadeInUp">
-                            <div class="sidebar-title">
-                                <h3>Special Guest</h3>
-                            </div>
-
-                            <div class="special-guest-list">
-                                <div class="single-guest-info">
-                                    <div class="profile-img" style="background-image: url('assets/img/event/guest1.jpg')"></div>
-                                    <div class="guest-bio">
-                                        <h5>Kinlon K. Karlo</h5>
-                                        <span>Speaker</span>
-                                    </div>
-                                </div>
-                                <div class="single-guest-info">
-                                    <div class="profile-img" style="background-image: url('assets/img/event/guest2.jpg')"></div>
-                                    <div class="guest-bio">
-                                        <h5>Salman Khan</h5>
-                                        <span>Actor</span>
-                                    </div>
-                                </div>
-                                <div class="single-guest-info">
-                                    <div class="profile-img" style="background-image: url('assets/img/event/guest3.jpg')"></div>
-                                    <div class="guest-bio">
-                                        <h5>Joy Roy</h5>
-                                        <span>Speaker</span>
-                                    </div>
-                                </div>
-                                <div class="single-guest-info">
-                                    <div class="profile-img" style="background-image: url('assets/img/event/guest4.jpg')"></div>
-                                    <div class="guest-bio">
-                                        <h5>Ismail IRF</h5>
-                                        <span>Actor</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="event-map-wrap wow fadeInUp">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5457.875323165521!2d144.90402300269133!3d-37.792722838344716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad646b5d2ba4df7%3A0x4045675218ccd90!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sbd!4v1612018663424!5m2!1sen!2sbd" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                        </div>
-                    </div>
-                </div>
+          <div class="row">
+            <div class="col-md-6 col-12" *ngFor="let img of event.gallery">
+              <img [src]="img" alt="">
             </div>
+          </div>
         </div>
-    </section>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="col-12 col-lg-5 col-xl-4">
+        <div class="event-details-sidebar">
+          <!-- Event Info -->
+          <div class="single-event-sidebar">
+            <div class="sidebar-title"><h3>Event Details</h3></div>
+            <div class="event-address-info">
+              <div class="single-address-info">
+                <i class="fal fa-map-marker-alt"></i>
+                <p>{{ event.address }}</p>
+              </div>
+              <div class="single-address-info">
+                <i class="fal fa-envelope"></i>
+                <p>{{ event.email }}</p>
+              </div>
+              <div class="single-address-info">
+                <i class="fal fa-phone"></i>
+                <p>{{ event.phone }}</p>
+              </div>
+              <a href="#" class="theme-btn minimal-btn">Book Your Seat</a>
+            </div>
+          </div>
+
+          <!-- Guests -->
+          <div class="single-event-sidebar">
+            <div class="sidebar-title"><h3>Special Guest</h3></div>
+            <div class="special-guest-list">
+              <div class="single-guest-info" *ngFor="let guest of event.guests">
+                <div class="profile-img" [style.background-image]="'url(' + guest.image + ')'"></div>
+                <div class="guest-bio">
+                  <h5>{{ guest.name }}</h5>
+                  <span>{{ guest.role }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Map -->
+          <div class="event-map-wrap" *ngIf="event.mapEmbedUrl">
+            <iframe [src]="event.mapEmbedUrl" frameborder="0" style="border:0;" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
