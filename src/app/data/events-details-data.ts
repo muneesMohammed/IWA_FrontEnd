@@ -36,7 +36,7 @@ export const EVENT_DETAILS: EventDetail[] = [
       role: 'Founder'
     },
     gallery: [
-      'assets/img/event/eventd1.jpg',
+      'assets/img/event/OIP.webp',
       'assets/img/event/eventd1.jpg',
       'assets/img/event/eventd2.jpg'
     ],
