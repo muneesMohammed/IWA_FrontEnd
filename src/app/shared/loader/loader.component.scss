@@ -1,0 +1,20 @@
+$overlay-bg: rgba(255, 255, 255, 0.4);
+$blur-amount: 6px;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: $overlay-bg;
+  backdrop-filter: blur($blur-amount);
+
+  z-index: 2000;
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
