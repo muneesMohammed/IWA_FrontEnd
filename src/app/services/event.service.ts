@@ -19,3 +19,21 @@ export class EventService {
     return of(event);
   }
 }
+
+
+
+
+// for spiinner syntax
+
+
+// this.loaderService.show();
+// this.http.get('API_URL').subscribe({
+//   next: (data) => {
+//     // handle data
+//     this.loaderService.hide();
+//   },
+//   error: (err) => {
+//     console.error(err);
+//     this.loaderService.hide();
+//   }
+// });

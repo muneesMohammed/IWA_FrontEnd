@@ -2744,6 +2744,14 @@ header.header-box-style .box-wrap .main-menu ul > li > a, header.header-1 .box-w
   }
 }
 
+/* Active menu item underline */
+header.header-box-style .box-wrap .main-menu ul > li > a.active::before,
+header.header-1 .box-wrap .main-menu ul > li > a.active::before {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0); /* show underline */
+}
+
 header.header-box-style .box-wrap .main-menu ul > li > a::before, header.header-1 .box-wrap .main-menu ul > li > a::before {
   position: absolute;
   top: 0;
@@ -2758,11 +2766,25 @@ header.header-box-style .box-wrap .main-menu ul > li > a::before, header.header-
   transition: all .4s ease-in-out;
   -webkit-transform: translateY(-6px);
           transform: translateY(-6px);
+
 }
 
 header.header-box-style .box-wrap .main-menu ul > li:hover > a, header.header-1 .box-wrap .main-menu ul > li:hover > a {
+  color: #727272;
+  background-color: #eeeeee;
+  transform: scale(1.05);
+}
+header.header-box-style .box-wrap .main-menu ul > li > a.active, header.header-1 .box-wrap .main-menu ul > li> a.active {
   color: #202426;
   background-color: #fff;
+}
+/* Active menu item underline */
+header.header-box-style .box-wrap .main-menu ul > li > a.active::before,
+header.header-1 .box-wrap .main-menu ul > li > a.active::before {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0); /* show underline */
+  
 }
 
 header.header-box-style .box-wrap .main-menu ul > li:hover > a::before, header.header-1 .box-wrap .main-menu ul > li:hover > a::before {
@@ -2770,6 +2792,7 @@ header.header-box-style .box-wrap .main-menu ul > li:hover > a::before, header.h
   visibility: visible;
   -webkit-transform: translateY(0);
           transform: translateY(0);
+  background-color: #d5534249;
 }
 
 header.header-box-style .box-wrap .main-menu ul > li:hover > ul, header.header-1 .box-wrap .main-menu ul > li:hover > ul {
@@ -4209,6 +4232,9 @@ header.wide-header .main-menu ul > li > ul ul, header .header-3 .main-menu ul > 
 .about-section .section-title h1 span {
   color: #00baa3;
 }
+  .about-section .section-title h1 {
+    font-size: 58px;
+  }
 
 @media (max-width: 585px) {
   .about-section .section-title h1 {
@@ -8646,10 +8672,11 @@ header.wide-header .main-menu ul > li > ul ul, header .header-3 .main-menu ul > 
 
 .single-contact-card {
   background-color: #f8f8f8;
-  padding: 40px;
+  padding: 32px;
   margin-bottom: 30px;
   -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
+  font-size: 14px;
 }
 
 @media (max-width: 585px) {

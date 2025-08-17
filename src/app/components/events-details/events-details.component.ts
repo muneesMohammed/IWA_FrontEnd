@@ -1,27 +1,24 @@
-
-// src/app/event-detail/event-detail.component.ts
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EventService } from '../../services/event.service';
-import { EventItem } from '../../data/events-data';
+import { CommonModule } from '@angular/common';
+import { EVENT_DETAILS, EventDetail } from '../../data/events-details-data';
 
 @Component({
   selector: 'app-events-details',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './events-details.component.html',
-  styleUrl: './events-details.component.scss'
+  styleUrls: ['./events-details.component.scss']
 })
 export class EventsDetailsComponent implements OnInit {
   private route = inject(ActivatedRoute);
-  constructor(private eventSvc: EventService) {}
 
-  event: EventItem | undefined;
+  event: EventDetail | undefined;
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      const id = params.get('id')!;
-      this.eventSvc.getEventById(id)
-        .subscribe(evt => this.event = evt);
-    });
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.event = EVENT_DETAILS.find(e => e.eventId === id);
+    }
   }
 }
