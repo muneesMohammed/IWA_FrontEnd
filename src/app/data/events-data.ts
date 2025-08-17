@@ -72,15 +72,3 @@ export const EVENTS: EventItem[] = [
     categories: ['trending', 'water']
   }
 ];
-
-
-
-
-
-
-
-
-
-
-    
-

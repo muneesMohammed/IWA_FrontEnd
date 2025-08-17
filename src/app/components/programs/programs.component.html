@@ -30,11 +30,14 @@
       <div class="col-12 col-lg-12 text-center">
         <!-- Category Filter Buttons -->
         <div class="event-cat-filter mb-20 text-center">
-          <button (click)="filterByCategory('all')" [class.active]="activeCategory === 'all'">All Programs</button>
+          <button (click)="filterByCategory('all')" [class.active]="activeCategory === 'all'">All</button>
           <button (click)="filterByCategory('education')" [class.active]="activeCategory === 'education'">Education</button>
           <button (click)="filterByCategory('health')" [class.active]="activeCategory === 'health'">Health</button>
           <button (click)="filterByCategory('community')" [class.active]="activeCategory === 'community'">Community</button>
-          <button (click)="filterByCategory('environment')" [class.active]="activeCategory === 'environment'">Environment</button>
+          <button (click)="filterByCategory('environment')" [class.active]="activeCategory === 'environment'">Disaster</button>
+          <button (click)="filterByCategory('livelihood')" [class.active]="activeCategory === 'livelihood'">Livelihood</button>
+          <button (click)="filterByCategory('seasonal')" [class.active]="activeCategory === 'seasonal'">Seasonal</button>
+          <button (click)="filterByCategory('cultural')" [class.active]="activeCategory === 'cultural'">Cultural</button>
         </div>
       </div>
     </div>
