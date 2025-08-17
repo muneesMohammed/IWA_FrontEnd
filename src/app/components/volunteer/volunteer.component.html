@@ -26,62 +26,84 @@
 <section class="contact-page-wrap section-padding">
     <div class="container">
         <div class="row section-padding">
-            <div class="col-12 text-center mb-20">
-                <div class="section-title">
-                    <span><i class="fal fa-hands-helping"></i> Become a Volunteer</span>
-                    <h1>Register Today</h1>
-                </div>
-            </div>
-
             <div class="col-12 col-lg-12">
+               <app-loader [visible]="isLoading" color="danger"></app-loader>
                 <div class="contact-form">
                     <form [formGroup]="volunteerForm" (ngSubmit)="onSubmit()" class="row">
                         <div class="col-md-6 col-12">
                             <div class="single-personal-info">
-                                <label for="name">Full Name</label>
+                                <label for="name">Full Name<span class="red-star"><span
+                                            class="red-star">*</span></span></label>
                                 <input type="text" id="name" formControlName="name" placeholder="Enter your full name"
                                     required>
+                                <div *ngIf="(volunteerForm.get('name')?.touched && volunteerForm.get('name')?.invalid) || (isSubmitted && volunteerForm.get('name')?.invalid)"
+                                    class="text-danger">
+                                    <small>Name is required</small>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6 col-12">
                             <div class="single-personal-info">
                                 <label for="email">Email Address</label>
                                 <input type="email" id="email" formControlName="email"
-                                    placeholder="Enter your email address" required>
+                                    placeholder="Enter your email address">
                             </div>
                         </div>
                         <div class="col-md-6 col-12">
                             <div class="single-personal-info">
-                                <label for="phone">Phone Number</label>
+                                <label for="phone">Phone Number<span class="red-star">*</span></label>
                                 <input type="text" id="phone" formControlName="phone"
                                     placeholder="Enter your phone number" required>
+                                <div *ngIf="(volunteerForm.get('phone')?.touched && volunteerForm.get('phone')?.invalid) || (isSubmitted && volunteerForm.get('phone')?.invalid)"
+                                    class="text-danger">
+                                    <Small>Phone Number is required</Small>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6 col-12">
                             <div class="single-personal-info">
-                                <label for="dob">D.O.B (YYYY-MM-DD)</label>
+                                <label for="dob">D.O.B (YYYY-MM-DD)<span class="red-star">*</span></label>
                                 <input type="date" id="dob" formControlName="dob" placeholder="YYYY-MM-DD" required>
+                                <div *ngIf="(volunteerForm.get('dob')?.touched && volunteerForm.get('dob')?.invalid) || (isSubmitted && volunteerForm.get('dob')?.invalid)"
+                                    class="text-danger">
+                                    <small>D.O.B is required</small>
+                                </div>
                             </div>
+
                         </div>
                         <div class="col-md-6 col-12">
                             <div class="single-personal-info">
-                                <label for="address">Address</label>
+                                <label for="address">Address<span class="red-star">*</span></label>
                                 <input type="text" id="address" formControlName="address"
                                     placeholder="Enter your address" required>
+                                <div *ngIf="(volunteerForm.get('address')?.touched && volunteerForm.get('address')?.invalid) 
+                                    || (isSubmitted && volunteerForm.get('address')?.invalid)">
+                                    <small class="text-danger">Address is required</small>
+                                </div>
                             </div>
+
                         </div>
                         <div class="col-md-6 col-12">
                             <div class="single-personal-info">
-                                <label for="district">District</label>
+                                <label for="district">District<span class="red-star">*</span></label>
                                 <input type="text" id="district" formControlName="district"
                                     placeholder="Enter your district" required>
+                                <div *ngIf="(volunteerForm.get('district')?.touched && volunteerForm.get('district')?.invalid) || (isSubmitted && volunteerForm.get('district')?.invalid)"
+                                    class="text-danger">
+                                    <small>District is required</small>
+                                </div>
                             </div>
+
                         </div>
                         <div class="col-md-6 col-12">
                             <div class="single-personal-info">
-                                <label for="state">State</label>
+                                <label for="state">State<span class="red-star">*</span></label>
                                 <input type="text" id="state" formControlName="state" placeholder="Enter your state"
                                     required>
+                                <div *ngIf="(volunteerForm.get('state')?.touched && volunteerForm.get('state')?.invalid) || (isSubmitted && volunteerForm.get('state')?.invalid)"
+                                    class="text-danger">
+                                    <small>State is required</small>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6 col-12">
@@ -99,7 +121,7 @@
                             </div>
                         </div>
                         <div class="col-md-12 col-12 text-center">
-                            <input class="submit-btn" type="submit"  value="Register as Volunteer">
+                            <input class="submit-btn" type="submit" value="Register as Volunteer">
                         </div>
                     </form>
                 </div>
