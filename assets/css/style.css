@@ -6335,12 +6335,12 @@ header.wide-header .main-menu ul > li > ul ul, header .header-3 .main-menu ul > 
   border: none;
   background-color: #f8f8f8;
   display: inline-block;
-  padding: 19px 38px;
+  padding: 13px 28px;
   line-height: 1;
   text-transform: capitalize;
   -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
-  border-radius: 30px;
+  border-radius: 25px;
   margin: 0px 3px;
   font-weight: 700;
   margin-bottom: 10px;
