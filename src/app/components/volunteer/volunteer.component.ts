@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ApiService } from '../../services/api.service';
 import { CommonModule } from '@angular/common';
 import { LoaderComponent } from '../../shared/loader/loader.component';
+import { NgxSpinnerService, NgxSpinnerModule } from 'ngx-spinner';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import {
   MatSnackBarHorizontalPosition,
@@ -10,7 +11,7 @@ import {
 } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-volunteer',
-  imports: [ReactiveFormsModule, CommonModule, LoaderComponent,MatSnackBarModule],
+  imports: [ReactiveFormsModule, CommonModule, LoaderComponent,MatSnackBarModule, NgxSpinnerModule],
   templateUrl: './volunteer.component.html',
   styleUrl: './volunteer.component.css'
 })
@@ -22,7 +23,9 @@ export class VolunteerComponent {
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
 
-  constructor(private fb: FormBuilder, private apiService: ApiService) {
+
+  constructor(private fb: FormBuilder, private spinner: NgxSpinnerService, private apiService: ApiService) {
+    
     // Initialize the form group here if needed
   }
   ngOnInit() {
@@ -47,9 +50,11 @@ export class VolunteerComponent {
     this.isSubmitted = true;
     console.log(this.volunteerForm);
     if (this.volunteerForm.valid) {
+      this.spinner.show();
       console.log('Form Submitted', this.volunteerForm.value);
       this.apiService.addVolunteer(this.volunteerForm.value).subscribe({
         next: (response) => {
+          this.spinner.hide();
           console.log('Volunteer registered successfully', response);
           this._snackBar.open('Volunteer registered successfully', 'IWA', {
           horizontalPosition: 'end',
