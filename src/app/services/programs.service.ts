@@ -1,25 +1,26 @@
-// src/app/services/program.service.ts
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { ProgramItem, PROGRAMS } from '../data/programs-data';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { ProgramItem } from '../data/programs-data';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProgramService {
+  private apiUrl = 'http://localhost:8080/api/programs';
+
+  constructor(private http: HttpClient) {}
 
   getPrograms(): Observable<ProgramItem[]> {
-    // Later: replace with HTTP call to backend
-    // return this.http.get<ProgramItem[]>('api/programs');
-    return of(PROGRAMS);
+    return this.http.get<ProgramItem[]>(this.apiUrl);
   }
 
   getProgramById(id: string): Observable<ProgramItem | undefined> {
-    // Later: replace with HTTP call to backend
-    // return this.http.get<ProgramItem>(`api/programs/${id}`);
-    const program = PROGRAMS.find(p => p.id === id);
-    return of(program);
+    return new Observable<ProgramItem | undefined>((observer) => {
+      this.getPrograms().subscribe((programs: ProgramItem[]) => {
+        observer.next(programs.find((p: ProgramItem) => p.id === id));
+        observer.complete();
+      });
+    });
   }
 }
-
-

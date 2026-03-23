@@ -1,22 +1,21 @@
-
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { EventDetail, EVENT_DETAILS } from '../data/events-details-data';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { EventDetail } from '../data/events-details-data';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventDetailService {
+  private apiUrl = 'http://localhost:8080/api/events';
+
+  constructor(private http: HttpClient) {}
 
   getEvents(): Observable<EventDetail[]> {
-    // later: return this.http.get<EventItem[]>('api/events');
-    return of(EVENT_DETAILS);
+    return this.http.get<EventDetail[]>(this.apiUrl);
   }
 
   getEventById(eventId: string): Observable<EventDetail | undefined> {
-    // later: return this.http.get<EventItem>(`api/events/${id}`);
-    const event = EVENT_DETAILS.find(e => e.eventId === eventId);
-    return of(event);
+    return this.http.get<EventDetail>(`${this.apiUrl}/${eventId}`);
   }
 }
-

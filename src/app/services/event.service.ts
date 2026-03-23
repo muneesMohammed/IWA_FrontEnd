@@ -1,39 +1,26 @@
-// src/app/services/event.service.ts
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { EventItem, EVENTS } from '../data/events-data';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { EventItem } from '../data/events-data';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventService {
+  private apiUrl = 'http://localhost:8080/api/events';
+
+  constructor(private http: HttpClient) {}
 
   getEvents(): Observable<EventItem[]> {
-    // later: return this.http.get<EventItem[]>('api/events');
-    return of(EVENTS);
+    return this.http.get<EventItem[]>(this.apiUrl);
   }
 
   getEventById(id: string): Observable<EventItem | undefined> {
-    // later: return this.http.get<EventItem>(`api/events/${id}`);
-    const event = EVENTS.find(e => e.id === id);
-    return of(event);
+    return new Observable<EventItem | undefined>((observer) => {
+      this.getEvents().subscribe((events: EventItem[]) => {
+        observer.next(events.find((e: EventItem) => e.id === id));
+        observer.complete();
+      });
+    });
   }
 }
-
-
-
-
-// for spiinner syntax
-
-
-// this.loaderService.show();
-// this.http.get('API_URL').subscribe({
-//   next: (data) => {
-//     // handle data
-//     this.loaderService.hide();
-//   },
-//   error: (err) => {
-//     console.error(err);
-//     this.loaderService.hide();
-//   }
-// });
